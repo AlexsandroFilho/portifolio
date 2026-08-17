@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Aplicação universal do Scroll Suave */
+html, body {
+  scroll-behavior: smooth !important;
+  scroll-padding-top: 80px; /* Evita que o topo da seção fique escondido atrás da Navbar */
+}
+
+body {
+  background-color: #171717;
+  color: #EDEDED;
+  overflow-x: clip; /* Correção para não quebrar o scroll suave */
+}
+
+@layer utilities {
+  .animate-bounce-slow {
+    animation: bounce-slow 3s infinite;
+  }
+
+  @keyframes bounce-slow {
+    0%, 100% {
+      transform: translateY(-5%);
+      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+      transform: translateY(0);
+      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+  }
+}
